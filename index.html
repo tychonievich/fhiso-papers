@@ -2,27 +2,65 @@
 <html>
 	<head>
 		<title>Index of FHISO papers</title>
+		<style type="text/css">
+			table { margin:auto; border: 1px solid black; border-collapse:collapse; }
+			td { padding: 0.2em 1em; }
+			th { background-color: #ddd; }
+			.version { text-align:center; }
+			tr:nth-child(6n-1) td { background-color:#eee; }
+			tr:nth-child(6n+0) td { background-color:#eee; }
+			tr:nth-child(6n+1) td { background-color:#eee; }
+		</style>
+		<script type="text/javascript">
+			var sortColumn = function(key) {
+				var table = document.getElementById("tablerows");
+				for( var top=table.rows.length-1; top > 1; top -= 1) {
+					for (var i=1; i<top; i+=1) {
+						var k1 = table.rows[i].cells[key].innerHTML;
+						var k2 = table.rows[i+1].cells[key].innerHTML;
+						k1 = k1.replace(/<[^>]*>/g, "");
+						k2 = k2.replace(/<[^>]*>/g, "");
+						if ( k1 > k2 ) {
+							var tmp = table.rows[i+1].innerHTML;
+							table.rows[i+1].innerHTML = table.rows[i].innerHTML;
+							table.rows[i].innerHTML = tmp;
+						}
+					}
+				}
+			};
+			var makeOnClick = function() {
+				alert("making");
+				var table = document.getElementById("tablerows");
+				for( var i=0; i<table.rows.length; i+=1) {
+					for( var j=0; j<table.rows[i].cells.length; j+=1) {
+						table.rows[i].cells[j].setAttribute("onclick","sortColumn("+j+");");
+					}
+				}
+				alert("made");
+			}
+		</script>
 	</head>
-<body>
-<table><tbody>
-	<tr><th>Author</th><th>Title</th><th>Type</th><th>Date</th><th>Version</th><th>pdf</th></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Structured_Events</td><td class="type">Technical proposal</td><td class="date">2013-03-07</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0025-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Record_Linkage</td><td class="type">Technical proposal</td><td class="date">2013-03-14</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0024-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Preferred_Vocabulary</td><td class="type">An area requiring standardisation</td><td class="date">2013-03-19</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0023-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Place_References</td><td class="type">Technical proposal</td><td class="date">2013-03-21</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0022-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Personal_Names</td><td class="type">Technical proposal</td><td class="date">2013-03-19</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0021-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Partially_Controlled_Vocabulary</td><td class="type">Technical proposal</td><td class="date">2013-03-13</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0020-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Object_Model</td><td class="type">An area requiring standardisation</td><td class="date">2013-02-25</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0019-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Narrative_Text</td><td class="type">Technical proposal</td><td class="date">2013-03-08</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0018-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Modified_ISO8601</td><td class="type">Technical proposal</td><td class="date">2013-03-06</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0017-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Locale_Independence</td><td class="type">Functional requirements</td><td class="date">2013-03-11</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0016-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Event_Constraints</td><td class="type">Technical proposal</td><td class="date">2013-03-06</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0015-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Dual_Dates</td><td class="type">Technical proposal</td><td class="date">2013-03-06</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0014-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Proctor, Tony</td><td class="title">Calendars</td><td class="type">Technical proposal</td><td class="date">2013-03-11</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0013-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Tychonievich, Luther</td><td class="title">Selector Language for Family History Conclusions</td><td class="type">An area requiring standardisation</td><td class="date">2013-03-15</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0008-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Tychonievich, Luther</td><td class="title">Multi-Granularity Standards</td><td class="type">Functional requirements</td><td class="date">2013-03-17</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0007-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Tychonievich, Luther</td><td class="title">Partial Implementations and Extensions</td><td class="type">Functional requirements</td><td class="date">2013-03-15</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0006-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Tychonievich, Luther</td><td class="title">Inference Rules</td><td class="type">Technical proposal</td><td class="date">2013-03-15</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0005-1-0.pdf">PDF</a></td></tr>
-<tr><td class="author">Tychonievich, Luther</td><td class="title">Modeling Research, not Conclusions</td><td class="type">Technical proposal</td><td class="date">2013-03-10</td><td class="version">1.0</td><td class="pdf"><a href="fhiso-paper-0004-1-0.pdf">PDF</a></td></tr>
+<body onload="makeOnClick();">
+<table><tbody id="tablerows">
+	<tr><th>Author</th><th>Title</th><th>Type</th><th>Date</th><th>Version</th></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0025-1-0.pdf">Structured_Events</a></td><td class="type">Technical proposal</td><td class="date">2013-03-07</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0024-1-0.pdf">Record_Linkage</a></td><td class="type">Technical proposal</td><td class="date">2013-03-14</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0023-1-0.pdf">Preferred_Vocabulary</a></td><td class="type">An area requiring standardisation</td><td class="date">2013-03-19</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0022-1-0.pdf">Place_References</a></td><td class="type">Technical proposal</td><td class="date">2013-03-21</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0021-1-0.pdf">Personal_Names</a></td><td class="type">Technical proposal</td><td class="date">2013-03-19</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0020-1-0.pdf">Partially_Controlled_Vocabulary</a></td><td class="type">Technical proposal</td><td class="date">2013-03-13</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0019-1-0.pdf">Object_Model</a></td><td class="type">An area requiring standardisation</td><td class="date">2013-02-25</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0018-1-0.pdf">Narrative_Text</a></td><td class="type">Technical proposal</td><td class="date">2013-03-08</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0017-1-0.pdf">Modified_ISO8601</a></td><td class="type">Technical proposal</td><td class="date">2013-03-06</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0016-1-0.pdf">Locale_Independence</a></td><td class="type">Functional requirements</td><td class="date">2013-03-11</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0015-1-0.pdf">Event_Constraints</a></td><td class="type">Technical proposal</td><td class="date">2013-03-06</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0014-1-0.pdf">Dual_Dates</a></td><td class="type">Technical proposal</td><td class="date">2013-03-06</td><td class="version">1.0</td></tr>
+<tr><td class="author">Proctor, Tony</td><td class="title"><a href="fhiso-paper-0013-1-0.pdf">Calendars</a></td><td class="type">Technical proposal</td><td class="date">2013-03-11</td><td class="version">1.0</td></tr>
+<tr><td class="author">Tychonievich, Luther</td><td class="title"><a href="fhiso-paper-0008-1-0.pdf">Selector Language for Family History Conclusions</a></td><td class="type">An area requiring standardisation</td><td class="date">2013-03-15</td><td class="version">1.0</td></tr>
+<tr><td class="author">Tychonievich, Luther</td><td class="title"><a href="fhiso-paper-0007-1-0.pdf">Multi-Granularity Standards</a></td><td class="type">Functional requirements</td><td class="date">2013-03-17</td><td class="version">1.0</td></tr>
+<tr><td class="author">Tychonievich, Luther</td><td class="title"><a href="fhiso-paper-0006-1-0.pdf">Partial Implementations and Extensions</a></td><td class="type">Functional requirements</td><td class="date">2013-03-15</td><td class="version">1.0</td></tr>
+<tr><td class="author">Tychonievich, Luther</td><td class="title"><a href="fhiso-paper-0005-1-0.pdf">Inference Rules</a></td><td class="type">Technical proposal</td><td class="date">2013-03-15</td><td class="version">1.0</td></tr>
+<tr><td class="author">Tychonievich, Luther</td><td class="title"><a href="fhiso-paper-0004-1-0.pdf">Modeling Research, not Conclusions</a></td><td class="type">Technical proposal</td><td class="date">2013-03-10</td><td class="version">1.0</td></tr>
 </tbody></table>
+
 </body>

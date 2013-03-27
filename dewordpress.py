@@ -19,4 +19,4 @@ for filename in sys.argv[1:]:
 				date = r2[37].strip()
 				version = r2[39].strip()
 				filename = 'fhiso-paper-%04d-%s.pdf' % (int(lid), re.sub("[^a-zA-Z0-9]+","-",version))
-				print '''<tr><td class="author">%s, %s</td><td class="title">%s</td><td class="type">%s</td><td class="date">%s</td><td class="version">%s</td><td class="pdf"><a href="%s">PDF</a></td></tr>''' % (surname,given, title,kind,date,version,filename)
+				print '''<tr><td class="author">%s, %s</td><td class="title"><a href="%s">%s</a></td><td class="type">%s</td><td class="date">%s</td><td class="version">%s</td></tr>''' % (surname,given, filename,title,kind,date,version)
