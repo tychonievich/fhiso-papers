@@ -29,14 +29,12 @@
 				}
 			};
 			var makeOnClick = function() {
-				alert("making");
 				var table = document.getElementById("tablerows");
 				for( var i=0; i<table.rows.length; i+=1) {
 					for( var j=0; j<table.rows[i].cells.length; j+=1) {
 						table.rows[i].cells[j].setAttribute("onclick","sortColumn("+j+");");
 					}
 				}
-				alert("made");
 			}
 		</script>
 	</head>
